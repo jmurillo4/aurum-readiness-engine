@@ -43,7 +43,7 @@ function isReleased(row) {
 function supersededIds(tableRows) {
   const ids = new Set();
   for (const row of tableRows) {
-    if (row.supersedes_id != null && isReleased(row)) {
+    if (row.supersedes_id != null && row.supersedes_id !== row.id && isReleased(row)) {
       ids.add(row.supersedes_id);
     }
   }
@@ -73,10 +73,11 @@ export function currentReleases(tableRows) {
  */
 export function isCurrentRelease(row, tableRows) {
   if (!isReleased(row)) return false;
- 
+
   return !tableRows.some(
     (otherRow) =>
       otherRow !== row &&
+      otherRow.id !== row.id &&
       otherRow.supersedes_id === row.id &&
       isReleased(otherRow)
   );

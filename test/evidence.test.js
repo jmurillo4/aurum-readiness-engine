@@ -70,4 +70,10 @@ test("indexSnapshot: enforces strict site isolation", () => {
   const siteResults = idx.currentReleasesFor("chemistry_results");
   assert.equal(siteResults.length, 1);
   assert.equal(siteResults[0].id, "res-1");
+
+  test("a row that supersedes itself is not retired", () => {
+  const rows = [{ id: "chem-1", status: "released", supersedes_id: "chem-1" }];
+  assert.equal(currentReleases(rows).length, 1);
+  assert.equal(isCurrentRelease(rows[0], rows), true);
+});
 });
