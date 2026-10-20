@@ -1,0 +1,171 @@
+{
+  "code": "USDA_NRCS_CEMA_216",
+  "name": "Soil Health Testing (CEMA 216)",
+  "version": "2026.1-draft",
+  "status": "draft",
+  "jurisdiction": "US",
+  "source": {
+    "title": "USDA NRCS Conservation Evaluation and Monitoring Activity 216, Soil Health Testing",
+    "note": "DRAFT. Requirement list and evidence mappings come from the SuperForce planning doc. Wording and NRCS section citations still need Aurum's approval."
+  },
+  "categories": [
+    { "key": "testing", "label": "Testing" },
+    { "key": "sampling", "label": "Sampling" },
+    { "key": "laboratory", "label": "Laboratory" },
+    { "key": "documentation", "label": "Documentation" },
+    { "key": "deliverables", "label": "Deliverables" }
+  ],
+  "requirements": [
+    {
+      "code": "IND-01", "version": 1, "category": "testing", "input_from": "aurum",
+      "title": "Wet aggregate stability",
+      "source_ref": "CEMA 216 soil health indicators (citation to confirm)",
+      "evidence_rule": { "kind": "lab_metric", "params": {
+        "sources": [{ "table": "physical_results", "column": "aggregate_stability", "method_column": "method" }],
+        "validity_window_months": 12
+      } }
+    },
+    {
+      "code": "IND-02", "version": 1, "category": "testing", "input_from": "aurum",
+      "title": "Soil organic carbon",
+      "source_ref": "CEMA 216 soil health indicators (citation to confirm)",
+      "evidence_rule": { "kind": "lab_metric", "params": {
+        "sources": [{ "table": "chemistry_results", "column": "organic_matter", "method_column": "organic_matter_method" }],
+        "allowed_methods": ["dry_combustion"],
+        "validity_window_months": 12
+      } }
+    },
+    {
+      "code": "IND-03", "version": 1, "category": "testing", "input_from": "aurum",
+      "title": "Soil respiration (24-hour CO2 burst)",
+      "source_ref": "CEMA 216 soil health indicators (citation to confirm)",
+      "evidence_rule": { "kind": "lab_metric", "params": {
+        "sources": [{ "table": "haney_results", "column": "soil_respiration", "accepted_method": "haney_24h_co2" }],
+        "validity_window_months": 12
+      } }
+    },
+    {
+      "code": "IND-04", "version": 1, "category": "testing", "input_from": "aurum",
+      "title": "Labile carbon",
+      "source_ref": "CEMA 216 soil health indicators (citation to confirm)",
+      "evidence_rule": { "kind": "lab_metric", "params": {
+        "sources": [{ "table": "haney_results", "column": "organic_c", "accepted_method": "haney_water_extractable_c" }],
+        "validity_window_months": 12
+      } }
+    },
+    {
+      "code": "IND-05", "version": 1, "category": "testing", "input_from": "aurum",
+      "title": "Bioavailable nitrogen",
+      "source_ref": "CEMA 216 soil health indicators (citation to confirm)",
+      "evidence_rule": { "kind": "lab_metric", "params": {
+        "sources": [{ "table": "haney_results", "column": "organic_n", "accepted_method": "haney_water_extractable_n" }],
+        "validity_window_months": 12
+      } }
+    },
+    {
+      "code": "IND-06", "version": 1, "category": "testing", "input_from": "aurum",
+      "title": "Soil texture (lab)",
+      "source_ref": "CEMA 216 soil health indicators (citation to confirm)",
+      "next_action": { "missing": "Aurum does not store a lab texture result yet. Soil survey texture does not count." },
+      "evidence_rule": { "kind": "lab_metric", "params": {
+        "sources": [{ "table": "physical_results", "column": "texture_class", "method_column": "method" }]
+      } }
+    },
+    {
+      "code": "IND-07", "version": 1, "category": "testing", "input_from": "aurum",
+      "title": "Soil pH",
+      "source_ref": "CEMA 216 soil health indicators (citation to confirm)",
+      "evidence_rule": { "kind": "lab_metric", "params": {
+        "sources": [{ "table": "chemistry_results", "column": "ph", "method_column": "ph_method" }],
+        "allowed_methods": ["water_1_1"],
+        "validity_window_months": 12
+      } }
+    },
+    {
+      "code": "IND-08", "version": 1, "category": "testing", "input_from": "aurum",
+      "title": "Microbial community (PLFA), advanced tier",
+      "source_ref": "CEMA 216 advanced indicators (citation to confirm)",
+      "evidence_rule": { "kind": "lab_metric", "params": {
+        "sources": [{ "table": "plfa_results", "column": "total_biomass", "accepted_method": "plfa" }],
+        "validity_window_months": 12
+      } }
+    },
+    {
+      "code": "SAM-03", "version": 1, "category": "sampling", "input_from": "aurum",
+      "title": "At least 3 composite samples per field per visit",
+      "source_ref": "CEMA 216 sampling protocol (citation to confirm)",
+      "evidence_rule": { "kind": "sample_count", "params": { "min_samples": 3 } }
+    },
+    {
+      "code": "SAM-05", "version": 1, "category": "sampling", "input_from": "aurum",
+      "title": "Sample depth 0 to 6 inches (up to 8)",
+      "source_ref": "CEMA 216 sampling protocol (citation to confirm)",
+      "evidence_rule": { "kind": "sample_depth", "params": { "min_top_in": 0, "min_bottom_in": 6, "max_bottom_in": 8 } }
+    },
+    {
+      "code": "SAM-06", "version": 1, "category": "sampling", "input_from": "aurum",
+      "title": "Weather and field conditions at sampling",
+      "source_ref": "CEMA 216 sampling protocol (citation to confirm)",
+      "evidence_rule": { "kind": "event_field", "params": {
+        "field": "weather",
+        "partial_reason": "Weather is recorded on the visit; field conditions such as soil moisture still need confirming."
+      } }
+    },
+    {
+      "code": "QI-02", "version": 1, "category": "sampling", "input_from": "aurum",
+      "title": "Samples collected or overseen by a Qualified Individual",
+      "source_ref": "CEMA 216 qualified individual requirement (citation to confirm)",
+      "evidence_rule": { "kind": "event_field", "params": {
+        "field": "collected_by",
+        "partial_reason": "The collector's name is on record, but Aurum does not store their qualifications."
+      } }
+    },
+    {
+      "code": "LAB-01", "version": 1, "category": "laboratory", "input_from": "lab",
+      "title": "Analysis by a qualifying laboratory",
+      "source_ref": "CEMA 216 laboratory requirement (citation to confirm)",
+      "evidence_rule": { "kind": "external", "params": { "reason": "Aurum does not store which lab ran each test or its certification." } }
+    },
+    {
+      "code": "SCH-01", "version": 1, "category": "sampling", "input_from": "aurum",
+      "title": "Baseline sampling",
+      "source_ref": "CEMA 216 schedule (citation to confirm)",
+      "evidence_rule": { "kind": "event_schedule", "params": { "event_type": "baseline" } }
+    },
+    {
+      "code": "IND-09", "version": 1, "category": "sampling", "input_from": "aurum",
+      "title": "Follow-up sampling",
+      "source_ref": "CEMA 216 schedule (citation to confirm)",
+      "evidence_rule": { "kind": "event_schedule", "params": { "event_type": "annual", "after_event_type": "baseline", "interval_months": 12 } }
+    },
+    {
+      "code": "DEL-01", "version": 1, "category": "documentation", "input_from": "aurum",
+      "title": "Program participant and land details",
+      "source_ref": "CEMA 216 deliverables (citation to confirm)",
+      "evidence_rule": { "kind": "record_fields", "params": {
+        "table": "organizations", "fields": ["name", "address", "state"],
+        "external_fields": ["NRCS contract number", "farm and tract numbers"]
+      } }
+    },
+    {
+      "code": "DEL-07", "version": 1, "category": "deliverables", "input_from": "aurum",
+      "title": "Map with field boundary and sample GPS points",
+      "source_ref": "CEMA 216 deliverables (citation to confirm)",
+      "evidence_rule": { "kind": "geo_points", "params": {} }
+    },
+    {
+      "code": "HIST-01", "version": 1, "category": "documentation", "input_from": "producer",
+      "title": "Three-year crop and management history",
+      "source_ref": "CEMA 216 documentation (citation to confirm)",
+      "next_action": { "external": "Needs your input: crop and management history for the last three years." },
+      "evidence_rule": { "kind": "external", "params": { "reason": "Aurum does not collect management history yet." } }
+    },
+    {
+      "code": "MGT-01", "version": 1, "category": "documentation", "input_from": "producer",
+      "title": "Current practices, acreage and goals",
+      "source_ref": "CEMA 216 documentation (citation to confirm)",
+      "next_action": { "external": "Needs your input: practices in use, acres enrolled and goals." },
+      "evidence_rule": { "kind": "external", "params": { "reason": "Aurum does not collect this yet." } }
+    }
+  ]
+}

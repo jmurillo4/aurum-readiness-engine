@@ -1,0 +1,18 @@
+{
+  "code": "USDA_NRCS_CEMA_216_TX",
+  "name": "CEMA 216 Texas overlay",
+  "version": "2026.1-draft",
+  "status": "draft",
+  "jurisdiction": "US-TX",
+  "overlay_of": { "code": "USDA_NRCS_CEMA_216", "version": "2026.1-draft" },
+  "source": { "note": "PLACEHOLDER. Texas-specific requirements have not been researched yet; this row proves the overlay mechanism only." },
+  "overrides": [],
+  "requirements": [
+    {
+      "code": "TX-01", "version": 1, "category": "documentation", "input_from": "producer",
+      "title": "Texas NRCS field office contact on record (placeholder)",
+      "source_ref": "NRCS Texas supplement (to research)",
+      "evidence_rule": { "kind": "external", "params": { "reason": "Placeholder Texas requirement pending research." } }
+    }
+  ]
+}
