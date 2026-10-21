@@ -1,7 +1,7 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import { loadSiteSnapshot, normalizeSnapshot } from "../src/loadSiteSnapshot.js";
-import { evaluateSite, resolveProgram } from "../src/index.js";
+import { evaluateSite, resolveProgram, getSiteReadiness } from "../src/index.js";
 import { registry, thinSite } from "./helpers.js";
 
 // A tiny stand-in for supabase-js: from().select().eq()/in()/maybeSingle(), awaitable.
@@ -65,6 +65,14 @@ test("a loaded snapshot gives the same checklist as the fixture", async () => {
   const fromDb = evaluateSite(program, await loadSiteSnapshot(fakeClient(dbFromFixture()), "site-456"), { asOf: "2026-10-16" });
   const fromFile = evaluateSite(program, thinSite(), { asOf: "2026-10-16" });
   assert.deepEqual(fromDb.requirements.map(r => [r.code, r.status]), fromFile.requirements.map(r => [r.code, r.status]));
+});
+
+test("getSiteReadiness loads, picks the site's state overlay, and only reads", async () => {
+  const client = fakeClient(dbFromFixture());
+  const result = await getSiteReadiness(client, "site-456", { registry: registry(), asOf: "2026-10-17" });
+  assert.equal(result.site_id, "site-456");
+  assert.ok(result.program.overlays.length > 0);
+  assert.ok(client.calls.every(c => c.op === "select"));
 });
 
 test("a site with no visits loads without empty IN queries", async () => {

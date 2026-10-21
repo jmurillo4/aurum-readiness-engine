@@ -4,3 +4,4 @@ export { CHECKS } from "./checks.js";
 export { STATUS, STATUS_LABEL, PRODUCER_INPUT_LABEL } from "./statuses.js";
 export { parseDepth } from "./depth.js";
 export { loadSiteSnapshot, normalizeSnapshot, DEFAULT_TABLES } from "./loadSiteSnapshot.js";
+export { getSiteReadiness } from "./siteReadiness.js";
