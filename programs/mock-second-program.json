@@ -1,0 +1,54 @@
+{
+  "code": "MOCK_STATE_CARBON_INCENTIVE",
+  "name": "Mock state carbon incentive (test configuration)",
+  "version": "0.1-mock",
+  "status": "mock",
+  "jurisdiction": "US",
+  "source": { "note": "Fictional program for the SOW second-program test. Deliberately different categories, depth, sample count, windows and methods." },
+  "categories": [
+    { "key": "carbon", "label": "Carbon evidence" },
+    { "key": "biology", "label": "Biology" },
+    { "key": "field", "label": "Field protocol" },
+    { "key": "enrollment", "label": "Enrollment" }
+  ],
+  "requirements": [
+    {
+      "code": "C-1", "version": 1, "category": "carbon", "input_from": "aurum",
+      "title": "Soil organic carbon by dry combustion, 0 to 12 inches",
+      "source_ref": "Mock program section 1",
+      "evidence_rule": { "kind": "lab_metric", "params": {
+        "sources": [{ "table": "chemistry_results", "column": "combustion_organic_carbon_pct", "method_column": "combustion_organic_carbon_method" }],
+        "allowed_methods": ["dry_combustion"],
+        "validity_window_months": 24,
+        "depth": { "min_top_in": 0, "min_bottom_in": 12 }
+      } }
+    },
+    {
+      "code": "B-1", "version": 1, "category": "biology", "input_from": "aurum",
+      "title": "Microbial biomass (PLFA) within 36 months",
+      "source_ref": "Mock program section 2",
+      "evidence_rule": { "kind": "lab_metric", "params": {
+        "sources": [{ "table": "plfa_results", "column": "total_biomass", "accepted_method": "plfa" }],
+        "validity_window_months": 36
+      } }
+    },
+    {
+      "code": "F-1", "version": 1, "category": "field", "input_from": "aurum",
+      "title": "At least 5 samples per field",
+      "source_ref": "Mock program section 3",
+      "evidence_rule": { "kind": "sample_count", "params": { "min_samples": 5 } }
+    },
+    {
+      "code": "F-2", "version": 1, "category": "field", "input_from": "aurum",
+      "title": "GPS-located samples within a mapped boundary",
+      "source_ref": "Mock program section 3",
+      "evidence_rule": { "kind": "geo_points", "params": {} }
+    },
+    {
+      "code": "E-1", "version": 1, "category": "enrollment", "input_from": "producer",
+      "title": "Signed land-control attestation",
+      "source_ref": "Mock program section 4",
+      "evidence_rule": { "kind": "external", "params": { "reason": "Signed by the land manager outside Aurum." } }
+    }
+  ]
+}

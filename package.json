@@ -1,0 +1,16 @@
+{
+  "name": "aurum-readiness-engine",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Program readiness matching engine for the Aurum Conservation Evidence Pilot (CEMA 216). Read-only; rules are data.",
+  "type": "module",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "node --test",
+    "demo": "node scripts/demo.js",
+    "site": "node --env-file=.env scripts/run-site.js"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

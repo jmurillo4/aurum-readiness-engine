@@ -21,7 +21,7 @@
       "title": "Wet aggregate stability",
       "source_ref": "CEMA 216 soil health indicators (citation to confirm)",
       "evidence_rule": { "kind": "lab_metric", "params": {
-        "sources": [{ "table": "physical_results", "column": "aggregate_stability", "method_column": "method" }],
+        "sources": [{ "table": "physical_results", "column": "wet_aggregate_stability_pct", "method_column": "wet_aggregate_stability_method" }],
         "validity_window_months": 12
       } }
     },
@@ -30,7 +30,7 @@
       "title": "Soil organic carbon",
       "source_ref": "CEMA 216 soil health indicators (citation to confirm)",
       "evidence_rule": { "kind": "lab_metric", "params": {
-        "sources": [{ "table": "chemistry_results", "column": "organic_matter", "method_column": "organic_matter_method" }],
+        "sources": [{ "table": "chemistry_results", "column": "combustion_organic_carbon_pct", "method_column": "combustion_organic_carbon_method" }],
         "allowed_methods": ["dry_combustion"],
         "validity_window_months": 12
       } }

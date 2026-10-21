@@ -41,11 +41,14 @@ function isReleased(row) {
 //Invalidation guard: An older released row is only marked as superseded if its replacement row is also marked.
 //If a replacement row is still under review or failed, the older released result remains the active evidence.
 function supersededIds(tableRows) {
+  const byId = new Map(tableRows.map((row) => [row.id, row]));
   const ids = new Set();
   for (const row of tableRows) {
-    if (row.supersedes_id != null && row.supersedes_id !== row.id && isReleased(row)) {
-      ids.add(row.supersedes_id);
-    }
+    // backward link: this released row replaces an older one
+    if (row.supersedes_id != null && row.supersedes_id !== row.id && isReleased(row)) ids.add(row.supersedes_id);
+    // Aurum's forward link: this row was replaced, and the replacement is released
+    const next = byId.get(row.superseded_by);
+    if (next && next.id !== row.id && isReleased(next)) ids.add(row.id);
   }
   return ids;
 }

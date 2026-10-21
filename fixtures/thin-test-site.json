@@ -1,0 +1,24 @@
+{
+  "_note": "SYNTHETIC. Shaped after the Aurum test-site findings in the planning doc: one sample at 0-15 cm, chemistry/Haney/PLFA released, no aggregate stability or lab texture, no method on chemistry.",
+  "site": { "id": "site-456", "organization_id": "org-1", "name": "Test Field A" },
+  "organizations": [{ "id": "org-1", "name": "Example Ranch LLC", "address": "1 Ranch Rd, El Paso, TX", "state": "TX" }],
+  "site_boundaries": [{ "id": "bnd-1", "site_id": "site-456" }],
+  "sampling_events": [
+    { "id": "evt-1", "site_id": "site-456", "event_type": "baseline", "sampled_at": "2026-05-12", "collected_by": "J. Ortiz", "weather": { "conditions": "clear" } }
+  ],
+  "samples": [
+    { "id": "smp-1", "sampling_event_id": "evt-1", "depth": "0-15 cm", "latitude": 31.77, "longitude": -106.44, "lab_id": "A-0001" }
+  ],
+  "chemistry_results": [
+    { "id": "chem-1", "sample_id": "smp-1", "status": "released", "lab_date": "2026-05-20", "ph": 7.9, "ec": 0.4, "combustion_organic_carbon_pct": 1.8 }
+  ],
+  "haney_results": [
+    { "id": "haney-1", "sample_id": "smp-1", "status": "released", "lab_date": "2026-05-22", "soil_respiration": 54.1, "organic_c": 160, "organic_n": 18 }
+  ],
+  "plfa_results": [
+    { "id": "plfa-1", "sample_id": "smp-1", "status": "released", "lab_date": "2026-05-25", "total_biomass": 2100 }
+  ],
+  "physical_results": [
+    { "id": "phys-1", "sample_id": "smp-1", "status": "released", "lab_date": "2026-05-25", "method": "lab", "bulk_density": 1.4 }
+  ]
+}
